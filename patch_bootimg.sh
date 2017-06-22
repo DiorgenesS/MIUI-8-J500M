@@ -14,6 +14,16 @@ cd $TARGET_BOOT_DIR/ramdisk
 cpio -i < ../boot.img-ramdisk
 cd - > /dev/null
 
+# remove verity_key
+if [ -a $TARGET_BOOT_DIR/ramdisk/verity_key ];then
+rm -rf $TARGET_BOOT_DIR/ramdisk/verity_key
+fi
+
+# ramdisk miui
+if [ -d overlay/boot/ramdisk ];then
+cp -rf overlay/boot/ramdisk/* $TARGET_BOOT_DIR/ramdisk/
+fi
+
 # repack ramdisk
 $MKBOOTFS $TARGET_BOOT_DIR/ramdisk | gzip > $TARGET_BOOT_DIR/ramdisk.gz
 
