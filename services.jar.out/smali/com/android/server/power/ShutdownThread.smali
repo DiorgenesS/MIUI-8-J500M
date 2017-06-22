@@ -3734,10 +3734,10 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
-    .line 1033
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
+    sget-boolean v2, Lcom/android/server/power/ShutdownThread;->mReboot:Z
 
-    .line 1035
+    invoke-static {p0, v2}, Lcom/android/server/power/ShutdownThreadInjector;->showShutdownDialog(Landroid/content/Context;Z)V
+
     sget-object v1, Lcom/android/server/power/ShutdownThread;->sInstance:Lcom/android/server/power/ShutdownThread;
 
     iput-object v0, v1, Lcom/android/server/power/ShutdownThread;->mProgressDialog:Landroid/app/ProgressDialog;

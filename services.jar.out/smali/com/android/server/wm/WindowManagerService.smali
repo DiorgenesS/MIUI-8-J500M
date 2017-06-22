@@ -1395,7 +1395,6 @@
 
     iput-object v6, p0, Lcom/android/server/wm/WindowManagerService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 615
     const/4 v6, 0x1
 
     new-array v6, v6, [I
@@ -1408,10 +1407,9 @@
 
     iput-object v6, p0, Lcom/android/server/wm/WindowManagerService;->mCurrentProfileIds:[I
 
-    .line 629
-    new-instance v6, Lcom/android/server/policy/PhoneWindowManager;
+    new-instance v6, Lcom/android/server/policy/MiuiPhoneWindowManager;
 
-    invoke-direct {v6}, Lcom/android/server/policy/PhoneWindowManager;-><init>()V
+    invoke-direct {v6}, Lcom/android/server/policy/MiuiPhoneWindowManager;-><init>()V
 
     iput-object v6, p0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
 

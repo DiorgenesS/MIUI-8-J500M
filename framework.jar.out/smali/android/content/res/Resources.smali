@@ -444,7 +444,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method constructor <init>()V
     .locals 5
 
     .prologue
@@ -2691,6 +2691,10 @@
 
     .restart local v0    # "ret":Landroid/content/res/Resources;
     sput-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/miui/ResourcesManager;->initMiuiResource(Landroid/content/res/Resources;Ljava/lang/String;)V
 
     :cond_0
     monitor-exit v2
@@ -9139,9 +9143,9 @@
     .line 4149
     .local v15, "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     :goto_4
-    if-eqz v15, :cond_e
+    if-eqz v15, :cond_d
 
-    if-nez p4, :cond_e
+    if-nez p4, :cond_d
 
     .line 4151
     move-object/from16 v0, p0
@@ -9153,13 +9157,13 @@
     .line 4161
     .local v12, "dr":Landroid/graphics/drawable/Drawable;
     :goto_5
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_f
 
     invoke-virtual {v12}, Landroid/graphics/drawable/Drawable;->canApplyTheme()Z
 
     move-result v4
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_f
 
     const/4 v9, 0x1
 
@@ -9371,47 +9375,20 @@
     .end local v21    # "mThemeKey":Ljava/lang/String;
     .end local v23    # "out":Ljava/io/FileWriter;
     :cond_c
-    if-eqz v6, :cond_d
+    move-object/from16 v0, p0
 
-    .line 4141
-    sget-object v4, Landroid/content/res/Resources;->sPreloadedColorDrawables:Landroid/util/LongSparseArray;
+    move/from16 v1, p2
 
-    invoke-virtual {v4, v10, v11}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v10, v11, v1}, Landroid/content/res/Resources;->getPreloadedDrawable(JI)Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v15
-
-    check-cast v15, Landroid/graphics/drawable/Drawable$ConstantState;
 
     .restart local v15    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     goto/16 :goto_4
 
     .line 4143
-    .end local v15    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     :cond_d
-    sget-object v4, Landroid/content/res/Resources;->sPreloadedDrawables:[Landroid/util/LongSparseArray;
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Landroid/content/res/Resources;->mConfiguration:Landroid/content/res/Configuration;
-
-    invoke-virtual {v5}, Landroid/content/res/Configuration;->getLayoutDirection()I
-
-    move-result v5
-
-    aget-object v4, v4, v5
-
-    invoke-virtual {v4, v10, v11}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Landroid/graphics/drawable/Drawable$ConstantState;
-
-    .restart local v15    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
-    goto/16 :goto_4
-
-    .line 4152
-    :cond_e
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_e
 
     .line 4153
     new-instance v12, Landroid/graphics/drawable/ColorDrawable;
@@ -9427,7 +9404,7 @@
 
     .line 4155
     .end local v12    # "dr":Landroid/graphics/drawable/Drawable;
-    :cond_f
+    :cond_e
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
@@ -9444,7 +9421,7 @@
     goto/16 :goto_5
 
     .line 4161
-    :cond_10
+    :cond_f
     const/4 v9, 0x0
 
     goto/16 :goto_6

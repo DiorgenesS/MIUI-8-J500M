@@ -132683,6 +132683,12 @@
 
     invoke-direct/range {v3 .. v19}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIII)I
 
+    move/from16 v0, v24
+
+    move-object/from16 v1, v34
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerServiceInjector;->handleExtraConfigurationChangesForSystem(ILandroid/content/res/Configuration;)V
+
     .line 25206
     and-int/lit8 v3, v24, 0x4
 

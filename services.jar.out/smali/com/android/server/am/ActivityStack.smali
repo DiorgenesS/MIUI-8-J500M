@@ -10255,6 +10255,25 @@
 
     .line 6707
     :cond_16
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v1, v19
+
+    invoke-static {v1, v4, v11, v8}, Landroid/app/MiuiThemeHelper;->canKeepActivityAlive(Ljava/lang/String;ILandroid/content/res/Configuration;Landroid/content/res/Configuration;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_miui_f
+
+    const/16 v19, 0x1
+
+    return v19
+
+    :cond_miui_f
     const/16 v19, 0x1
 
     move/from16 v0, v19
