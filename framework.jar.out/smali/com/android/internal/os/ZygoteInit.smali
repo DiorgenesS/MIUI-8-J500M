@@ -835,30 +835,25 @@
     .param p0, "argv"    # [Ljava/lang/String;
 
     .prologue
-    .line 1064
     const/16 v6, -0x10
 
     :try_start_0
     invoke-static {v6}, Landroid/os/Process;->setThreadPriority(I)V
 
-    .line 1067
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->enableDdms()V
 
-    .line 1069
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->start()V
 
-    .line 1071
+    invoke-static {}, Lmiui/patchrom/ClassHook;->initCoreHook()V
+
     const/4 v5, 0x0
 
-    .line 1072
     .local v5, "startSystemServer":Z
-    const-string/jumbo v4, "zygote"
+    const-string v4, "zygote"
 
-    .line 1073
     .local v4, "socketName":Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 1074
     .local v0, "abiList":Ljava/lang/String;
     const/4 v3, 0x1
 

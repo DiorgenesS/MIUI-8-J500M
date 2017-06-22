@@ -1137,6 +1137,8 @@
 
     invoke-static {v1, v2, v3}, Landroid/app/SystemServiceRegistry;->registerService(Ljava/lang/String;Ljava/lang/Class;Landroid/app/SystemServiceRegistry$ServiceFetcher;)V
 
+    invoke-static {}, Landroid/app/ContextImplInjector;->registerMiuiServices()V
+
     .line 1216
     return-void
 .end method
