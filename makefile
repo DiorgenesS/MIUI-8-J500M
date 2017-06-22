@@ -59,5 +59,6 @@ local-pre-zip-misc:
 	@echo remove unnecessary lib64 miui!
 	$(hide) rm -rf $(ZIP_DIR)/system/lib64
 	$(hide) cp -rf stockrom/system/lib64 $(ZIP_DIR)/system
-
-	
+	@echo remove unnecessary files!
+	$(hide) rm -rf $(ZIP_DIR)/system/etc/init.miui.rc
+	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.bak
