@@ -388,6 +388,12 @@
 
     move-result-object v11
 
+    iget-object v1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+
+    iget-object v1, v1, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
+
+    invoke-static {v11, v1}, Landroid/miui/ResourcesManager;->initMiuiResource(Landroid/content/res/Resources;Ljava/lang/String;)V
+
     .line 2228
     :cond_4
     iput-object v11, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;

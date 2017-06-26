@@ -13105,6 +13105,10 @@
 
     .line 1812
     .local v9, "r":Landroid/content/res/Resources;
+    iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v9, v0}, Landroid/miui/ResourcesManager;->initMiuiResource(Landroid/content/res/Resources;Ljava/lang/String;)V
+
     if-eqz v9, :cond_5
 
     .line 1814

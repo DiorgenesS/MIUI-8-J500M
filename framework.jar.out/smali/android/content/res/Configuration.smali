@@ -314,6 +314,8 @@
 
 .field public displayId:I
 
+.field public extraConfig:Landroid/content/res/MiuiConfiguration;
+
 .field public fontScale:F
 
 .field public hardKeyboardHidden:I
@@ -383,18 +385,16 @@
     .locals 1
 
     .prologue
-    .line 804
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 307
-    const/4 v0, 0x0
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    iput v0, p0, Landroid/content/res/Configuration;->themeSeq:I
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    .line 805
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
     invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
 
-    .line 806
     return-void
 .end method
 
@@ -403,18 +403,16 @@
     .param p1, "o"    # Landroid/content/res/Configuration;
 
     .prologue
-    .line 811
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 307
-    const/4 v0, 0x0
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    iput v0, p0, Landroid/content/res/Configuration;->themeSeq:I
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    .line 812
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
 
-    .line 813
     return-void
 .end method
 
@@ -423,18 +421,16 @@
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1692
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 307
-    const/4 v0, 0x0
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    iput v0, p0, Landroid/content/res/Configuration;->themeSeq:I
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    .line 1693
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 1694
     return-void
 .end method
 
@@ -1017,34 +1013,32 @@
 .end method
 
 .method public static needNewResources(II)Z
-    .locals 2
+    .locals 1
     .param p0, "configChanges"    # I
     .param p1, "interestingChanges"    # I
 
     .prologue
-    .line 1501
     const/high16 v0, 0x40000000    # 2.0f
 
     or-int/2addr v0, p1
 
-    const/high16 v1, 0x10000
-
-    or-int/2addr v0, v1
-
-    const/high16 v1, 0x20000000
-
-    or-int/2addr v0, v1
-
     and-int/2addr v0, p0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    invoke-static {p0}, Landroid/content/res/MiuiConfiguration;->needNewResources(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -2782,10 +2776,16 @@
 
     sub-int v2, v7, v8
 
-    .line 1760
-    if-nez v2, :cond_0
+    iget-object v7, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
 
-    .line 1764
+    iget-object v8, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v7, v8}, Landroid/content/res/MiuiConfiguration;->compareTo(Landroid/content/res/MiuiConfiguration;)I
+
+    move-result v2
+
+    goto/16 :goto_0
+
     iget v7, p0, Landroid/content/res/Configuration;->FlipFont:I
 
     int-to-float v0, v7
@@ -3233,7 +3233,19 @@
 
     .line 1486
     :cond_15
-    return v0
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->diff(Landroid/content/res/MiuiConfiguration;)I
+
+    move-result v2
+
+    or-int/2addr v0, v2
+
+    move v1, v0
+
+    goto/16 :goto_0
 .end method
 
 .method public equals(Landroid/content/res/Configuration;)Z
@@ -3484,7 +3496,16 @@
 
     add-int v0, v1, v2
 
-    .line 1826
+    mul-int/lit8 v1, v0, 0x1f
+
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2}, Landroid/content/res/MiuiConfiguration;->hashCode()I
+
+    move-result v2
+
+    add-int v0, v1, v2
+
     return v0
 
     .line 1800
@@ -3883,6 +3904,10 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->densityScaleFactor:F
 
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, p1}, Landroid/content/res/MiuiConfiguration;->readFromParcel(Landroid/os/Parcel;)V
+
     .line 1676
     return-void
 
@@ -3890,7 +3915,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public setLayoutDirection(Ljava/util/Locale;)V
@@ -3939,7 +3964,7 @@
 .end method
 
 .method public setTo(Landroid/content/res/Configuration;)V
-    .locals 1
+    .locals 2
     .param p1, "o"    # Landroid/content/res/Configuration;
 
     .prologue
@@ -4085,6 +4110,12 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->densityScaleFactor:F
 
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v1, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, v1}, Landroid/content/res/MiuiConfiguration;->setTo(Landroid/content/res/MiuiConfiguration;)V
+
     .line 864
     return-void
 .end method
@@ -4181,7 +4212,10 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->densityScaleFactor:F
 
-    .line 1105
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0}, Landroid/content/res/MiuiConfiguration;->setToDefaults()V
+
     return-void
 .end method
 
@@ -4623,6 +4657,14 @@
 
     .line 1050
     :cond_1
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2}, Landroid/content/res/MiuiConfiguration;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     const/16 v2, 0x7d
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -5807,6 +5849,16 @@
 
     .line 1339
     :cond_1e
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->updateFrom(Landroid/content/res/MiuiConfiguration;)I
+
+    move-result v2
+
+    or-int/2addr v0, v2
+
     return v0
 
     .line 1191
@@ -6070,7 +6122,10 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1624
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, p1, p2}, Landroid/content/res/MiuiConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
+
     return-void
 
     .line 1579
