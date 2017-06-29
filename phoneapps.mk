@@ -28,8 +28,6 @@ private-phone-priv-apps := \
 	BackupRestoreConfirmation \
 	BadgeProvider_M \
 	CarrierConfig \
-	DefaultContainerService \
-	DeviceKeystring \
 	ExternalStorageProvider \
 	FusedLocation \
 	HealthService \
@@ -38,10 +36,8 @@ private-phone-priv-apps := \
 	MtpApplication \
 	ProxyHandler \
 	SecMediaProvider \
-	serviceModeApp_FB \
-	ServiceModeApp_RIL \
 	SharedStorageBackup \
 	Shell \
+	SimSettingMgr \
 	SmartSelfShot \
-	StatementService \
-	UcsPinpad 
+	StatementService 
