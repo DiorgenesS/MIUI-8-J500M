@@ -13,6 +13,13 @@ then
    cp $METADATA_DIR/updater $TARGET_FILES_DIR/OTA/bin
 fi
 
+#Use custom kernel
+if [ -e $METADATA_DIR/boot.img ]
+then
+   echo "Use custom kernel to boot"
+   cp $METADATA_DIR/boot.img $TARGET_FILES_DIR/BOOTABLE_IMAGES
+fi
+
 #Added file_contexts to ROM
 cp -f other/file_contexts out/target_files/META/
 rm -rf out/target_files/SYSTEM/vendor/preinstall
