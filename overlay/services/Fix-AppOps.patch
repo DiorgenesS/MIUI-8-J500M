@@ -4,11 +4,11 @@ Date: Wed, 28 Jun 2017 19:49:08 -0300
 Subject: [PATCH] Fix AppOps
 
 ---
- services.jar.out/smali/com/android/server/AppOpsService.smali | 6 +++---
+ services/smali/com/android/server/AppOpsService.smali | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
---- a/services.jar.out/smali/com/android/server/AppOpsService.smali
-+++ b/services.jar.out/smali/com/android/server/AppOpsService.smali
+--- a/services/smali/com/android/server/AppOpsService.smali
++++ b/services/smali/com/android/server/AppOpsService.smali
 @@ -2623,7 +2623,7 @@
      .prologue
      if-ltz p1, :cond_1
@@ -19,7 +19,7 @@ Subject: [PATCH] Fix AppOps
      if-ge p1, v0, :cond_1
  
 @@ -9464,7 +9464,7 @@
- 
+     .local v1, "opRestrictions":[Z
      if-nez v1, :cond_0
  
 -    const/16 v3, 0x3f
@@ -28,7 +28,7 @@ Subject: [PATCH] Fix AppOps
      new-array v1, v3, [Z
  
 @@ -10012,7 +10012,7 @@
- 
+     .prologue
      const/4 v4, -0x1
  
 -    const/16 v2, 0x3f
