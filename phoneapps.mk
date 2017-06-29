@@ -21,7 +21,6 @@ private-phone-apps := \
 	Stk2 \
 	TetheringAutomation\
 	TimeService \
-	USBSettings \
 	UserDictionaryProvider \
 	WebViewGoogle 
 
@@ -29,7 +28,6 @@ private-phone-priv-apps := \
 	BackupRestoreConfirmation \
 	BadgeProvider_M \
 	CarrierConfig \
-	ContextProvider \
 	DefaultContainerService \
 	DeviceKeystring \
 	ExternalStorageProvider \
@@ -37,8 +35,9 @@ private-phone-priv-apps := \
 	HealthService \
 	HybridRadio2016_M \
 	InputDevices \
+	MtpApplication \
 	ProxyHandler \
-	ResourceManager \
+	SecMediaProvider \
 	serviceModeApp_FB \
 	ServiceModeApp_RIL \
 	SharedStorageBackup \

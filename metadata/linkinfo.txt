@@ -3,7 +3,6 @@ system/app/Bluetooth/lib/arm/libbluetooth_jni.so|/system/lib/libbluetooth_jni.so
 system/app/PacProcessor/lib/arm/libjni_pacprocessor.so|/system/lib/libjni_pacprocessor.so
 system/app/RootPA/lib/arm/libcommonpawrapper.so|/system/lib/libcommonpawrapper.so
 system/app/SPrintSpooler6/lib/arm/libprintspooler_jni6.so|/system/lib/libprintspooler_jni6.so
-system/app/sveservice/lib/arm/libsmejni.so|/system/lib/libsmejni.so
 system/bin/acpi|toybox
 system/bin/app_process|app_process32
 system/bin/basename|toybox
