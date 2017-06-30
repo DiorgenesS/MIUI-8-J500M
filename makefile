@@ -95,3 +95,5 @@ local-pre-zip-misc:
 	$(hide) rm -rf $(ZIP_DIR)/data/miui/resolves_miui.conf
 	$(hide) rm -rf $(ZIP_DIR)/system/etc/init.miui.rc
 	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.bak
+	$(hide) rm -rf $(ZIP_DIR)/system/lib/modules/pronto/pronto_wlan.ko
+	$(hide) rm -rf $(ZIP_DIR)/system/lib/modules/radio-iris-transport.ko
