@@ -97,3 +97,5 @@ local-pre-zip-misc:
 	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.bak
 	$(hide) rm -rf $(ZIP_DIR)/system/lib/modules/pronto/pronto_wlan.ko
 	$(hide) rm -rf $(ZIP_DIR)/system/lib/modules/radio-iris-transport.ko
+	@echo copying files!
+	$(hide) cp -rf other/system $(ZIP_DIR)/
