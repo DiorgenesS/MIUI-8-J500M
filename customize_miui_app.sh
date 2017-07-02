@@ -37,23 +37,3 @@ function mergyXmlPart() {
 		$XMLMERGYTOOL $src $dst
 	done
 }
-
-if [ $1 = "Calendar" ];then
-   sed -i '/- 16/a\sdkInfo:\n  minSdkVersion: '\''23'\''\n  targetSdkVersion: '\''22'\''' $2/apktool.yml
-fi
-
-if [ $1 = "CalendarProvider" ];then
-   sed -i '/- 16/a\sdkInfo:\n  minSdkVersion: '\''23'\''\n  targetSdkVersion: '\''22'\''' $2/apktool.yml
-fi
-
-if [ $1 = "Contacts" ];then
-   sed -i '/- 16/a\  - 18\nsdkInfo:\n  minSdkVersion: '\''23'\''\n  targetSdkVersion: '\''22'\''' $2/apktool.yml
-fi
-
-if [ $1 = "ContactsProvider" ];then
-   sed -i '/- 16/a\sdkInfo:\n  minSdkVersion: '\''23'\''\n  targetSdkVersion: '\''22'\''' $2/apktool.yml
-fi
-
-if [ $1 = "TeleService" ];then
-   sed -i '/- 16/a\sdkInfo:\n  minSdkVersion: '\''23'\''\n  targetSdkVersion: '\''22'\''' $2/apktool.yml
-fi
