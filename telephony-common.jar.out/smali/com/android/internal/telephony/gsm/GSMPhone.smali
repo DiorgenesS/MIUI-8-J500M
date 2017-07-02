@@ -14109,7 +14109,6 @@
     if-nez v3, :cond_0
 
     .line 2995
-    :cond_0
     :goto_0
     return-void
 
