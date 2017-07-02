@@ -2238,6 +2238,8 @@ system/media/audio/ui/lens_flare_lock.ogg 0 0 644 selabel=u:object_r:system_file
 system/media/audio/ui/lock_screen_silence.ogg 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/media/audio/ui/simple_ripple_down.ogg 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/media/audio/ui/simple_ripple_up.ogg 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/media/theme/default 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/media/theme/default/com.android.systemui 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/ANTRadioService 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/ANTRadioService/ANTRadioService.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
